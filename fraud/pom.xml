@@ -9,7 +9,8 @@
         <version>2.0</version>
     </parent>
 
-    <artifactId>customer</artifactId>
+    <groupId>com.amigoscode.fraud</groupId>
+    <artifactId>fraud</artifactId>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
