@@ -6,7 +6,7 @@
     <parent>
         <groupId>com.amigoscode</groupId>
         <artifactId>amigosservices</artifactId>
-        <version>6.0.0</version>
+        <version>7.0.0</version>
     </parent>
 
     <groupId>com.amigoscode.fraud</groupId>
@@ -47,7 +47,7 @@
         <dependency>
             <groupId>com.amigoscode</groupId>
             <artifactId>clients</artifactId>
-            <version>6.0.0</version>
+            <version>7.0.0</version>
             <scope>compile</scope>
         </dependency>
     </dependencies>
