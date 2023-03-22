@@ -6,7 +6,7 @@
 
     <groupId>com.amigoscode</groupId>
     <artifactId>amigosservices</artifactId>
-    <version>7.0.0</version>
+    <version>8.0.0</version>
     <packaging>pom</packaging>
 
     <name>amigosservices</name>
@@ -19,6 +19,7 @@
         <module>clients</module>
         <module>notification</module>
         <module>apigw</module>
+        <module>amqp</module>
     </modules>
 
     <properties>

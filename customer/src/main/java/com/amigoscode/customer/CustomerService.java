@@ -1,12 +1,11 @@
 package com.amigoscode.customer;
 
+import com.amigoscode.amqp.RabbitMQMessageProducer;
 import com.amigoscode.clients.fraud.FraudCheckResponse;
 import com.amigoscode.clients.fraud.FraudClient;
-import com.amigoscode.clients.notification.NotificationClient;
 import com.amigoscode.clients.notification.NotificationRequest;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
 
 @Service
 @AllArgsConstructor
@@ -14,11 +13,9 @@ public class CustomerService {
 
     private final CustomerRepository customerRepository;
 
-    private final RestTemplate restTemplate;
-
     private final FraudClient fraudClient;
 
-    private final NotificationClient notificationClient;
+    private final RabbitMQMessageProducer producer;
 
     public void registerCustomer(CustomerRegistrationRequest customerRegistrationRequest) {
         Customer customer = Customer.builder()
@@ -42,7 +39,9 @@ public class CustomerService {
                         customer.getFirstName())
         );
 
-        notificationClient.sendNotification(notificationRequest);
+        producer.publish(notificationRequest,
+                "internal.exchange",
+                "internal.notification.routing-key");
 
     }
 }
