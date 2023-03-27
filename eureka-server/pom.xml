@@ -6,7 +6,7 @@
     <parent>
         <groupId>com.amigoscode</groupId>
         <artifactId>amigosservices</artifactId>
-        <version>9.0.0</version>
+        <version>10.0.0</version>
     </parent>
     <packaging>jar</packaging>
     <artifactId>eureka-server</artifactId>
@@ -19,6 +19,21 @@
             </plugin>
         </plugins>
     </build>
+
+    <profiles>
+        <profile>
+            <id>build-docker-image</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>com.google.cloud.tools</groupId>
+                        <artifactId>jib-maven-plugin</artifactId>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
     <!--    <properties>-->
     <!--        <maven.compiler.source>17</maven.compiler.source>-->
     <!--        <maven.compiler.target>17</maven.compiler.target>-->
